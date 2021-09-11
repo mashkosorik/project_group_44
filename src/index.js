@@ -1,52 +1,28 @@
-// import './sass/main.scss';
+const axios = require('axios').default;
 
-import apiService from './js/apiService';
-// import refs from './js/refs';
-// import debounce from 'lodash.debounce';
-// import event from './tamplates/event.hbs';
+const refs = {
+  searchInput: document.querySelector('.searchInput'),
+  list: document.querySelector('.gallery'),
+};
 
-// // apiService.toGetFeatch();
-// const btn = document.querySelector('.load-more');
+function onEventSearch(e) {
+  let name = '';
+  if (!refs.searchInput.value || refs.searchInput.value === ' ') {
+    return;
+  }
+  name = refs.searchInput.value;
+  axios
+    .get(
+      `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${name}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
+    )
+    .then(function (response) {
+      const eventList = response.data._embedded.events.reduce((acc, elem) => {
+        acc += `<li class="item"><div><img width="180px" class="iconItem" src="${elem.images[6].url}"></div><div><p>${elem.name}</p><p>${elem.dates.start.localDate}</p><p>${elem.dates.timezone}</p></div></li>`;
+        return acc;
+      }, '');
+      return (refs.list.innerHTML = eventList);
+    })
+    .catch(console.log);
+}
 
-// refs.search.addEventListener(
-//   'input',
-//   debounce(e => {
-//     apiService.resetPage();
-//     if (e.target.value.trim() === '') {
-//       refs.gallery.innerHTML = '';
-//       return;
-//     }
-//     apiService.query = e.target.value;
-//     apiService.toGetFeatch().then(data => {
-//       refs.gallery.innerHTML = event(data);
-//       //   , removeClass(data);
-//     });
-//   }, 500),
-// );
-
-// refs.loadMoreBtn.addEventListener('click', () => {
-//   apiService.setPage();
-//   autoScroll();
-//   apiService.toGetFeatch().then(data => {
-//     refs.gallery.insertAdjacentHTML('beforeend', event(data)), removeClass(data);
-//   });
-// });
-
-// function removeClass(data) {
-//   console.log(data.length);
-//   if (data.length > 11) {
-//     btn.classList.remove('is-hidden');
-//   } else {
-//     btn.classList.add('is-hidden');
-//   }
-// }
-
-// function autoScroll() {
-//   let scrollHeight = Math.max(document.body.scrollHeight);
-//   setTimeout(() => {
-//     window.scrollTo({
-//       top: scrollHeight,
-//       behavior: 'smooth',
-//     });
-//   }, 500);
-// }
+refs.searchInput.addEventListener('input', onEventSearch);
