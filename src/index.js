@@ -1,4 +1,4 @@
-import modalTemplate from './templates/modal.hbs';
+import modalTemplate from './templates/modalDesktop.hbs';
 const axios = require('axios').default;
 
 const refs = {
