@@ -5,6 +5,7 @@ const refs = {
   searchInput: document.querySelector('.searchInput'),
   list: document.querySelector('.gallery'),
   modal: document.querySelector('.modal__back-drop'),
+  // closeBtn: document.querySelector('.modal__close-btn'),
 };
 let dataArray = [];
 
@@ -42,10 +43,15 @@ function onOpenModal(evt) {
   refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info });
   refs.modal.classList.remove('hidden');
   console.log(choosenItem);
-  // console.log();
+  refs.modal.addEventListener('click', onModalClose);
+  
+}
 
-
+function onModalClose(e) {
+  if(e.target.classList.contains('modal__back-drop')||e.target.classList.contains('modal__close-btn'))
+ { e.target.closest('.modal__back-drop').classList.add('hidden')}
 }
 
 refs.searchInput.addEventListener('input', onEventSearch);
 refs.list.addEventListener('click', onOpenModal);
+
