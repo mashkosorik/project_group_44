@@ -1,0 +1,28 @@
+.modal__back-drop.hidden {
+  display: none;
+}
+.modal__back-drop {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__window {
+  width: 930px;
+  height: 1023px;
+  background-color: #fff;
+}
+.modal__close-btn-container {
+  display: flex;
+  justify-content: right;
+}
+.modal__close-btn {
+  outline: 1px solid red;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  margin-top: 20px;
+}

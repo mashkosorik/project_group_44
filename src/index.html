@@ -13,25 +13,14 @@
     />
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="./sass/main.scss">
   </head>
   <body>
-    <include src="./partials/modal.html"></include>
-    <form class="search-form" id="search-form">
-      <input 
-      class="searchInput"
-      type="text" 
-      name="query" 
-      autocomplete="off" 
-      placeholder="Start searching" />
-      <select>
-        <option autofocus>Choose country</option>
-      </select>
-    </form>
+      <include src="./partials/header.html"></include>
+      <include src="./partials/main.html"></include>
+      <include src="./partials/modal.html"></include>
+  
 
-    <ul class="gallery">
-      <!-- Список <li> с карточками событий -->
-    </ul>
     <script src="index.js"></script>
   </body>
 </html>
