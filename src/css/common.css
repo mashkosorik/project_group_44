@@ -46,17 +46,49 @@ img {
 }
 .modal__window {
   width: 930px;
-  height: 1023px;
   background-color: #fff;
+  padding: 30px;
+  height: auto;
 }
 .modal__close-btn-container {
   display: flex;
   justify-content: right;
 }
 .modal__close-btn {
-  outline: 1px solid red;
   width: 40px;
   height: 40px;
   margin-right: 20px;
   margin-top: 20px;
+}
+.modal__close-btn-icon {
+  position: relative;
+  cursor: pointer;
+}
+.modal__close-btn-icon:last-child {
+  top: -100%;
+}
+.modal__icon {
+  display: flex;
+  justify-content: center;
+}
+.modal__icon img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 144px;
+  height: 144px;
+}
+.modal__main-info {
+  display: flex;
+  justify-content: start;
+}
+.modal__main-info img {
+  object-fit: cover;
+  width: 360px;
+}
+.main-info-list {
+  list-style: none;
+}
+.modal__more-btn {
+  display: flex;
+  justify-content: center;
 }
