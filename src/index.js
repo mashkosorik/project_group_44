@@ -7,9 +7,10 @@ const refs = {
   modal: document.querySelector('.modal__back-drop'),
   // closeBtn: document.querySelector('.modal__close-btn'),
 };
-let dataArray = [];
-
+let dataArray;
 function onEventSearch(e) {
+dataArray = [];
+
   let name = '';
   if (!refs.searchInput.value || refs.searchInput.value === ' ') {
     return;
@@ -20,6 +21,7 @@ function onEventSearch(e) {
       `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${name}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
     )
     .then(function (response) {
+      console.log(response);
       dataArray = [...dataArray, ...response.data._embedded.events];
       // console.log(dataArray);
 
@@ -39,8 +41,9 @@ function onOpenModal(evt) {
 
   const itemId = evt.target.closest('.item').id;
   const choosenItem = dataArray.find(item => { return item.id === itemId; });
-  const { dates:{start, timezone},name,info } = choosenItem;
-  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info });
+  const { dates: { start, timezone }, name, info, images,url, priceRanges } = choosenItem;
+  // console.log(icon.url);
+  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info,images,url, priceRanges });
   refs.modal.classList.remove('hidden');
   console.log(choosenItem);
   refs.modal.addEventListener('click', onModalClose);
@@ -48,7 +51,7 @@ function onOpenModal(evt) {
 }
 
 function onModalClose(e) {
-  if(e.target.classList.contains('modal__back-drop')||e.target.classList.contains('modal__close-btn'))
+  if(e.target.classList.contains('modal__back-drop')||e.target.classList.contains('modal__close-btn-icon'))
  { e.target.closest('.modal__back-drop').classList.add('hidden')}
 }
 
