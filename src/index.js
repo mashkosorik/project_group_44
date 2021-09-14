@@ -7,10 +7,9 @@ const refs = {
   modal: document.querySelector('.modal__back-drop'),
   // closeBtn: document.querySelector('.modal__close-btn'),
 };
-let dataArray;
-function onEventSearch(e) {
-dataArray = [];
+let dataArray = [];
 
+function onEventSearch(e) {
   let name = '';
   if (!refs.searchInput.value || refs.searchInput.value === ' ') {
     return;
@@ -21,13 +20,12 @@ dataArray = [];
       `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${name}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
     )
     .then(function (response) {
-      console.log(response);
       dataArray = [...dataArray, ...response.data._embedded.events];
       // console.log(dataArray);
 
 
       const eventList = dataArray.reduce((acc, elem) => {
-        acc += `<li class="item" id="${elem.id}"><div><img width="180px" class="iconItem" src="${elem.images[6].url}"></div><div><p>${elem.name}</p><p>${elem.dates.start.localDate}</p><p>${elem.dates.timezone}</p></div></li>`;
+        acc += `<li class="item" id="${elem.id}"><div><img width="180px" class="iconItem" src="${elem.images[6].url}"></div><div class="event-info"><p class="event-name">${elem.name}</p><p class="event-date">${elem.dates.start.localDate}</p><p class="event-location">${elem.dates.timezone}</p></div></li>`;
         return acc;
       }, '');
       
@@ -41,9 +39,8 @@ function onOpenModal(evt) {
 
   const itemId = evt.target.closest('.item').id;
   const choosenItem = dataArray.find(item => { return item.id === itemId; });
-  const { dates: { start, timezone }, name, info, images,url, priceRanges } = choosenItem;
-  // console.log(icon.url);
-  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info,images,url, priceRanges });
+  const { dates:{start, timezone},name,info } = choosenItem;
+  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info });
   refs.modal.classList.remove('hidden');
   console.log(choosenItem);
   refs.modal.addEventListener('click', onModalClose);
@@ -51,7 +48,7 @@ function onOpenModal(evt) {
 }
 
 function onModalClose(e) {
-  if(e.target.classList.contains('modal__back-drop')||e.target.classList.contains('modal__close-btn-icon'))
+  if(e.target.classList.contains('modal__back-drop')||e.target.classList.contains('modal__close-btn'))
  { e.target.closest('.modal__back-drop').classList.add('hidden')}
 }
 
