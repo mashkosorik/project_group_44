@@ -7,16 +7,19 @@
                         d="M30.355 32c-0.422 0-0.843-0.16-1.163-0.483l-28.709-28.706c-0.643-0.643-0.643-1.686 0-2.329s1.685-0.643 2.329 0l28.707 28.707c0.643 0.643 0.643 1.685 0 2.328-0.323 0.321-0.744 0.483-1.163 0.483z">
                     </path>
                 </svg>
-                <svg class="modal__close-btn-icon"version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <svg class="modal__close-btn-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                     <path fill="#4c00fe"
                         d="M1.646 32c-0.422 0-0.843-0.16-1.163-0.483-0.643-0.643-0.643-1.685 0-2.328l28.707-28.707c0.643-0.643 1.685-0.643 2.328 0s0.643 1.685 0 2.329l-28.707 28.706c-0.323 0.321-0.744 0.483-1.165 0.483z">
                     </path>
                 </svg>
             </div>
         </div>
-        
+
         <div class="modal__icon">
-            <img src="{{images.[4].url}}" alt="" >
+            {{#if name}}
+            <img src="{{images.[4].url}}" alt="">
+            {{/if}}
+
         </div>
         <div class="modal__main-info">
             <img src="{{images.[2].url}}" alt="">
@@ -46,7 +49,8 @@
                 <li class="main-info-item">
                     <h3>PRICES</h3>
                     <p>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="29" height="20" viewBox="0 0 44 32">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="29" height="20"
+                            viewBox="0 0 44 32">
                             <path d="M4.91 1.27h-4.91v29.46h4.91v-29.46z"></path>
                             <path d="M17.26 1.27h-4.91v29.46h4.91v-29.46z"></path>
                             <path d="M24.699 1.27h-4.91v29.46h4.91v-29.46z"></path>
@@ -55,10 +59,12 @@
                             <path d="M29.46 1.27h-2.381v29.46h2.381v-29.46z"></path>
                             <path d="M34.37 1.27h-2.381v29.46h2.381v-29.46z"></path>
                         </svg>
-                        Standart {{priceRanges.[0].min}}-{{priceRanges.[0].max}} {{priceRanges.[0].currency}}</p>
-                    <a href="{{url}} target='_blank'">BUY TICKETS</a>
+                        Standart {{priceRanges.[0].min}}-{{priceRanges.[0].max}} {{priceRanges.[0].currency}}
+                    </p>
+                    <a class="buyTicketsBtn" href="{{url}} target='_blank'">BUY TICKETS</a>
                     <p>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="29" height="20" viewBox="0 0 44 32">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="29" height="20"
+                            viewBox="0 0 44 32">
                             <path d="M4.91 1.27h-4.91v29.46h4.91v-29.46z"></path>
                             <path d="M17.26 1.27h-4.91v29.46h4.91v-29.46z"></path>
                             <path d="M24.699 1.27h-4.91v29.46h4.91v-29.46z"></path>
@@ -67,13 +73,15 @@
                             <path d="M29.46 1.27h-2.381v29.46h2.381v-29.46z"></path>
                             <path d="M34.37 1.27h-2.381v29.46h2.381v-29.46z"></path>
                         </svg>
-                        VIP {{priceRanges.[1].min}}-{{priceRanges.[1].max}} {{priceRanges.[1].currency}}</p>
-                    <a href="{{url}} target='_blank'">BUY TICKETS</a>
+                        VIP {{priceRanges.[1].min}}-{{priceRanges.[1].max}} {{priceRanges.[1].currency}}
+                    </p>
+                    <a class="buyTicketsBtn" href="{{url}} target='_blank'">BUY TICKETS</a>
                 </li>
             </ul>
         </div>
         <div class="modal__more-btn">
-            <a href="# target='_blank'">MORE FROM THIS AUTHOR</a>
+            <a class="authorInfoBtn" href="# target='_blank'">MORE FROM THIS AUTHOR</a>
         </div>
     </div>
-{{!-- </div> --}}
+    {{!--
+</div> --}}
