@@ -5,9 +5,28 @@ const refs = {
   searchInput: document.querySelector('.searchInput'),
   list: document.querySelector('.gallery'),
   modal: document.querySelector('.modal__back-drop'),
-  // closeBtn: document.querySelector('.modal__close-btn'),
+  closeBtn: document.querySelector('.modal__close-btn'),
 };
-let dataArray;
+let dataArray =[];
+
+ axios
+    .get(
+      `https://app.ticketmaster.com/discovery/v2/events.json?&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
+    )
+    .then(function (response) {
+      dataArray = [...dataArray, ...response.data._embedded.events];
+      
+      const eventList = dataArray.reduce((acc, elem) => {
+        acc +=
+        `<li class="item" id="${elem.id}"><div><img width="180px" class="iconItem" src="${elem.images[6].url}"></div><div><p>${elem.name}</p><p>${elem.dates.start.localDate}</p><p>${elem.dates.timezone}</p></div></li>`;
+        return acc;
+      }, '');
+      
+      return (refs.list.innerHTML = eventList);
+    })
+    .catch(console.log);
+    // console.log(response.data._embedded.events)
+
 function onEventSearch(e) {
 dataArray = [];
 
@@ -36,9 +55,12 @@ dataArray = [];
     .catch(console.log);
 }
 
+function onModalClose(e) {
+  if(e.target.classList.contains('modal__back-drop')||e.target.classList.contains('modal__close-btn-icon'))
+ { e.target.closest('.modal__back-drop').classList.add('hidden')}
+}
 function onOpenModal(evt) {
   if (evt.target.nodeName !== 'IMG') { return };
-
   const itemId = evt.target.closest('.item').id;
   const choosenItem = dataArray.find(item => { return item.id === itemId; });
   const { dates: { start, timezone }, name, info, images,url, priceRanges } = choosenItem;
@@ -50,10 +72,6 @@ function onOpenModal(evt) {
   
 }
 
-function onModalClose(e) {
-  if(e.target.classList.contains('modal__back-drop')||e.target.classList.contains('modal__close-btn-icon'))
- { e.target.closest('.modal__back-drop').classList.add('hidden')}
-}
 
 refs.searchInput.addEventListener('input', onEventSearch);
 refs.list.addEventListener('click', onOpenModal);
