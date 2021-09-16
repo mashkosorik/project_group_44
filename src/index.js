@@ -1,78 +1,60 @@
-import modalTemplate from './templates/modalDesktop.hbs';
+import "./js/main.js";
+import  countryList from './js/countryList.json';
+import { addDataToArr, createMarkup } from './js/main.js';
+import { refs } from './js/refs';
+import { onModalClose, onOpenModal } from './js/modal';
 const axios = require('axios').default;
 
-const refs = {
-  searchInput: document.querySelector('.searchInput'),
-  list: document.querySelector('.gallery'),
-  modal: document.querySelector('.modal__back-drop'),
-  closeBtn: document.querySelector('.modal__close-btn'),
-};
-let dataArray =[];
+const _ = require('lodash');
 
- axios
-    .get(
-      `https://app.ticketmaster.com/discovery/v2/events.json?&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
-    )
-    .then(function (response) {
-      dataArray = [...dataArray, ...response.data._embedded.events];
-      
-      const eventList = dataArray.reduce((acc, elem) => {
-        acc +=
-        `<li class="item" id="${elem.id}"><div><img width="180px" class="iconItem" src="${elem.images[6].url}"></div><div><p>${elem.name}</p><p>${elem.dates.start.localDate}</p><p>${elem.dates.timezone}</p></div></li>`;
-        return acc;
-      }, '');
-      
-      return (refs.list.innerHTML = eventList);
-    })
-    .catch(console.log);
-    // console.log(response.data._embedded.events)
+addDataToArr;
+onOpenModal;
+onModalClose;
 
-function onEventSearch(e) {
-dataArray = [];
-
-  let name = '';
-  if (!refs.searchInput.value || refs.searchInput.value === ' ') {
-    return;
-  }
-  name = refs.searchInput.value;
-  axios
-    .get(
-      `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${name}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
-    )
-    .then(function (response) {
-      console.log(response);
-      dataArray = [...dataArray, ...response.data._embedded.events];
-      // console.log(dataArray);
-
-
-      const eventList = dataArray.reduce((acc, elem) => {
-        acc += `<li class="item" id="${elem.id}"><div><img width="180px" class="iconItem" src="${elem.images[6].url}"></div><div><p>${elem.name}</p><p>${elem.dates.start.localDate}</p><p>${elem.dates.timezone}</p></div></li>`;
-        return acc;
-      }, '');
-      
-      return (refs.list.innerHTML = eventList);
-    })
-    .catch(console.log);
+addCountryToSelect();
+function addCountryToSelect() {
+  const countriesListArr = Object.entries(countryList).reduce((acc, item) => {
+    return acc += `<option class="countryOption"  value="${item[0]}"> ${item[1]}</option>`;
+  }, "");
+  return refs.countrySearch.innerHTML = countriesListArr;
 }
 
-function onModalClose(e) {
-  if(e.target.classList.contains('modal__back-drop')||e.target.classList.contains('modal__close-btn-icon'))
- { e.target.closest('.modal__back-drop').classList.add('hidden')}
-}
-function onOpenModal(evt) {
-  if (evt.target.nodeName !== 'IMG') { return };
-  const itemId = evt.target.closest('.item').id;
-  const choosenItem = dataArray.find(item => { return item.id === itemId; });
-  const { dates: { start, timezone }, name, info, images,url, priceRanges } = choosenItem;
-  console.log(images);
-  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info,images,url, priceRanges });
-  refs.modal.classList.remove('hidden');
-  console.log(choosenItem);
-  refs.modal.addEventListener('click', onModalClose);
+
+const onSearch = _.debounce((e) => {
+  refs.list.innerHTML = '';
+  if ((!refs.searchInput.value || refs.searchInput.value === ' ') && refs.countrySearch.value === 'Choose country') { return }
+
+    refs.name = refs.searchInput.value.trim();
   
-}
+  request();
+  function request() {
 
 
-refs.searchInput.addEventListener('input', onEventSearch);
+    axios
+      .get(
+        `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${refs.name}&page=${refs.page}&countryCode=${refs.countrySearch.value}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
+    )
+
+
+      .then(createMarkup )
+      .catch(console.log);
+  }
+}, 600);
+
+
+
+refs.searchInput.addEventListener('input', onSearch);
+refs.countrySearch.addEventListener('change', onSearch);
 refs.list.addEventListener('click', onOpenModal);
+
+
+
+        
+        // document.querySelectorAll('.iconItem')[document.querySelectorAll('.iconItem').length - 1].addEventListener('load', () => {
+        //   page += 1;
+        //   if (response.data._embedded.events.length < 20) { return }
+        //   request();
+        // }, {once: true})  
+
+
 
