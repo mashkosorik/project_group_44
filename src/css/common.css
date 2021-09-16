@@ -26,6 +26,7 @@ img {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  /* height: 100vh; */
 }
 .item {
   width: 194px;
