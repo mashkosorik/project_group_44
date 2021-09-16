@@ -14,25 +14,29 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="css/common.css">
+<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+
+
   </head>
   <body>
 
-    <form class="search-form" id="search-form">
-      <input 
-      class="searchInput"
-      type="text" 
-      name="query" 
-      autocomplete="off" 
-      placeholder="Start searching" />
-      <select>
-        <option autofocus>Choose country</option>
-      </select>
-    </form>
-    <include src="./partials/modal.html"></include>
-    <include src="./partials/main.html"></include>
-    <ul class="gallery">
 
-    </ul>
-    <script src="index.js"></script>
+      <form class="search-form" id="search-form">
+        <input 
+        class="searchInput"
+        type="text" 
+        name="query" 
+        autocomplete="off" 
+        placeholder="Start searching" />
+        <select class="countrySearch">
+
+        </select>
+      </form>
+      <include src="./partials/modal.html"></include>
+      <include src="./partials/main.html"></include>
+      <!-- <include src="./partials/footer.html"></include> -->
+
+      <script src="index.js"></script>
+
   </body>
 </html>
