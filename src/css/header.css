@@ -1,73 +1,108 @@
 
+    
 .logo {
-	/* position: ; */
-	 width: 107px;
-	height: 90px;   
-    /* padding: 24px 0 0 24px;  */
+	position: absolute;
+	width: 107px;
+	height: 90px;
 	border-bottom-right-radius: 100%;
 	backdrop-filter: blur(30px);
-    
+  
 
    } 
-	@media screen  and (max-width:767px) {
+
+	@media screen  and (min-width:768px) and (max-width:1279px) {
         .logo{
-            width: 179.5px;
+            width: 180px;
             height: 151px;
-            /* padding: 40px 0 0 40px; */
+            padding-top: 40px;
+            padding-left: 40px;
+       
         }
     } 
     @media screen  and(min-width: 1280px) {
         .logo{
-            width: 238.5px;
+            width: 238,5px;
             height: 201px;
+            padding-left: 20px;
+            padding-top: 40px;
+            
         }
     } 
-.logo_link{
+/* .logo_link{
     cursor: pointer;
     display: inline-block;
+} */
+.logo__img {
+	width: 60px;
+	height: 30px;
 }
+
+    @media screen and (min-width: 768px) and (max-width:1279px) {
+        .logo_img{
+        width: 100px;
+		height: 50px;
+        }
+    }
+    @media screen and (min-width:1280px) {
+        .logo_img{
+            
+            width: 136px;
+            height: 68px;
+        }
+    }
 /* cекция с background */
-.hero{
-    
-    background-size: 100%;
-}
+
 .hero {
 	height: 364px;
 	background-repeat: no-repeat;
 	background-position: center;
-    background-image: url(../images/backMobile.png);
+    background-image: url(../images/backMobile@1x.png);
     background-size: 100%;
     }
-	@media screen  and (max-width:767px) {
+
+	@media screen  and (min-width:768px) and (max-width:1279px) {
         .hero { 
-            height: 364px;
-            background-size: 100%;
-            background-image: url(../images/backTable.png);
+           background-size: 100%;
+           background-image: url(../images/backTable@1x.png);
 
         }
     }
-    @media screen  and(min-width: 1280px) {
+    @media screen  and (min-width: 1280px) {
         .hero {
             height: 446px;
-            background-image: url(../images/backDesk.png);
+            background-image: url(../images/backDesk@1x.png);
             background-size: 100%;
         }
     }
 
 .hero__overlay {
 	background:rgba(11, 11, 11, 0.5);
-	height: 100%;
+	width: 212px; 
+    height: 44px;
+}
+    @media screen  and (min-width:768px) and (max-width:1279px){
+        .hero__overlay{
+        width: 353px; 
+        height: 74px;   
+    }
+}
+    @media screen  and (min-width: 1280px){
+        .hero__overlay{
+            width: 588px; 
+            height: 122px;    
+    }
 }
 /* overlay между секциями  */
-.overlay-between-sections{
+/* .overlay-between-sections{
     background: linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%);
     height: 102px;
     top: -70px;
-}
+} */
 
 /* текст */
+
 .hero__title {
-	width: 212px;
+	
 	margin: 0 auto;
 	padding: 78px 0 25px;
 	color: #DC56C5;
@@ -75,25 +110,28 @@
 	font-weight: 900;
 	line-height: 22px;
 	text-align: center;
-    position: absolute;
+    
 }
-	@media screen  and (max-width:767px){
-        .hero__title{
-            width: 353px;
-            padding: 40px 0 27px;
-            font-size: 30px;
-            line-height: 37px;
-        }
-}
-
-    @media screen  and(min-width: 1280px) {             
-        .hero__title{
-            width: 590px;
+    @media screen  and (min-width:768px){ 
+    .hero_title {
+    
+	/* width: 588px; 
+    height: 122px; */
+	margin: 0 auto; 
+	padding: 78px 0 25px;
+	color: #DC56C5;
+	font-size: 30px;
+	font-weight: 900;
+	line-height: 22px; 
+	text-align: center; 
+    /* position: absolute; */
+    }
+   }
+    @media screen  and (min-width: 1280px) {             
+        .hero_title{
+            
             padding-bottom: 52px;
             font-size: 50px;
             line-height: 61px;
         }
-}
-.pix{
-    position: relative;
 }

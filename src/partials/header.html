@@ -1,25 +1,24 @@
 <header>
-    <div class ="pix">
+    <!-- <div class ="pix"> -->
+        <div class="logo">
+            <a href class="logo_link" href="#">  
+                <img src="images/logo.svg" class="logo_img" alt="">
+                </a>
+        </div>
         <section class ="hero">
-         <div class="logo">
-        <a class="logo_link" href="#">  
-            <img src="images/logo.svg" alt="logo header">
-            </a>
-            <!-- <section class ="hero"> -->
-                <div class="hero_overlay">
-                    <h1 class="hero_title">FIND BEST EVENTS
+            <div class="hero_overlay">
+                    <h1 class = "hero_title">FIND BEST EVENTS
                     AROUND THE WORLD</h1>
-                </div>
+                     
+                    <div class="container">
+                        <form class="search_form" id="search-form">
+                            <input class="searchInput" type="text" name="query" autocomplete="off" placeholder="Start searching" />
+                            <select>
+                                <option autofocus>Choose country</option>
+                            </select>
+                        </form>
+                        </div>
+                    </div>
                     <div class="overlay-between-sections"></div>
             </section>
-    </div>
-    </div>
-
-
-    <form class="search_form" id="search-form">
-        <input class="searchInput" type="text" name="query" autocomplete="off" placeholder="Start searching" />
-        <select>
-            <option autofocus>Choose country</option>
-        </select>
-    </form>
 </header>
