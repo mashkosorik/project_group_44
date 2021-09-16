@@ -4,6 +4,7 @@ import { addDataToArr, createMarkup } from './js/main.js';
 import { refs } from './js/refs';
 import { onModalClose, onOpenModal } from './js/modal';
 const axios = require('axios').default;
+
 const _ = require('lodash');
 
 addDataToArr;
@@ -28,10 +29,12 @@ const onSearch = _.debounce((e) => {
   request();
   function request() {
 
+
     axios
       .get(
         `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${refs.name}&page=${refs.page}&countryCode=${refs.countrySearch.value}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
     )
+
 
       .then(createMarkup )
       .catch(console.log);
