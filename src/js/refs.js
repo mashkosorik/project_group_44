@@ -3,6 +3,7 @@ export const refs = {
   countrySearch: document.querySelector('.countrySearch'),
   list: document.querySelector('.gallery'),
   modal: document.querySelector('.modal__back-drop'),
+  apiKey:`MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
     dataArray: [],
     page: 0,
   name: '',

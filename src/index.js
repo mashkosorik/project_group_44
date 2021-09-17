@@ -4,11 +4,13 @@ import { addDataToArr, createMarkup } from './js/main.js';
 import { refs } from './js/refs';
 import { onModalClose, onOpenModal } from './js/modal';
 import { property } from "lodash";
-// import { lastItemObserve } from "./js/scroll.js";
-const axios = require('axios').default;
+import { firstLoadding } from "./js/firstLoading.js";
 
+const axios = require('axios').default;
 const _ = require('lodash');
 
+
+firstLoadding();
 addDataToArr;
 onOpenModal;
 onModalClose;
@@ -35,7 +37,7 @@ const onSearch = _.debounce((e) => {
 
     axios
       .get(
-        `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${refs.name}&page=${refs.page}${countryCode}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
+        `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${refs.name}&page=${refs.page}${countryCode}&apikey=${refs.apiKey}`,
       )
       .then((resp) => {
         createMarkup(resp);
