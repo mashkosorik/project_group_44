@@ -3,6 +3,8 @@ import  countryList from './js/countryList.json';
 import { addDataToArr, createMarkup } from './js/main.js';
 import { refs } from './js/refs';
 import { onModalClose, onOpenModal } from './js/modal';
+import { property } from "lodash";
+// import { lastItemObserve } from "./js/scroll.js";
 const axios = require('axios').default;
 
 const _ = require('lodash');
@@ -22,21 +24,35 @@ function addCountryToSelect() {
 
 const onSearch = _.debounce((e) => {
   refs.list.innerHTML = '';
-  if ((!refs.searchInput.value || refs.searchInput.value === ' ') && refs.countrySearch.value === 'Choose country') { return }
 
-    refs.name = refs.searchInput.value.trim();
+  refs.name = refs.searchInput.value.trim();
+  let countryCode = `&countryCode=${refs.countrySearch.value}`;
+  
+  if(refs.searchInput.value && refs.countrySearch.value === 'TITLE'){ countryCode = ''; }
   
   request();
   function request() {
 
-
     axios
       .get(
-        `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${refs.name}&page=${refs.page}&countryCode=${refs.countrySearch.value}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
-    )
+        `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${refs.name}&page=${refs.page}${countryCode}&apikey=MrDjiKw1cBGuG57562zYpO5puccpSyZ6`,
+      )
+      .then((resp) => {
+        createMarkup(resp);
 
+        const observer = new IntersectionObserver(intsElem => {
+              intsElem.forEach(element => {
+                  if (element.isIntersecting) {
+                      refs.page += 1;
+                      request();
+                  }
+              })
+        }, refs.scrollOptions);
 
-      .then(createMarkup )
+            const lastItem = document.querySelectorAll('.item')[document.querySelectorAll('.item').length - 1];
+            observer.observe(lastItem);
+        
+      })
       .catch(console.log);
   }
 }, 600);
@@ -46,15 +62,5 @@ const onSearch = _.debounce((e) => {
 refs.searchInput.addEventListener('input', onSearch);
 refs.countrySearch.addEventListener('change', onSearch);
 refs.list.addEventListener('click', onOpenModal);
-
-
-
-        
-        // document.querySelectorAll('.iconItem')[document.querySelectorAll('.iconItem').length - 1].addEventListener('load', () => {
-        //   page += 1;
-        //   if (response.data._embedded.events.length < 20) { return }
-        //   request();
-        // }, {once: true})  
-
 
 

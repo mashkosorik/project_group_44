@@ -5,5 +5,10 @@ export const refs = {
   modal: document.querySelector('.modal__back-drop'),
     dataArray: [],
     page: 0,
-  name:'',
+  name: '',
+  scrollOptions: {
+                root: null,
+                rootMargin: "0px 0px -110px 0px",
+                threshold: 1,
+    }
 };
