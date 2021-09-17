@@ -7,10 +7,9 @@ export const refs = {
     dataArray: [],
     page: 0,
   name: '',
-
   scrollOptions: {
                 root: null,
                 rootMargin: "0px 0px -110px 0px",
                 threshold: 1,
-  },
+    }
 };
