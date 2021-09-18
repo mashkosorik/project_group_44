@@ -27,8 +27,8 @@ export function onOpenModal(evt) {
     return item.id === itemId;
   });
 
-  const { dates: { start, timezone }, name, info, images, url, priceRanges } = choosenItem;
-  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info,images,url, priceRanges });
+  const { dates: { start, timezone }, name, info, images, url, priceRanges, products } = choosenItem;
+  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info,images,url, priceRanges, products });
   refs.modal.classList.remove('hidden');
 
   document.querySelector('.authorInfoBtn').addEventListener('click', onLoadMoreFromAuthor);
