@@ -15,10 +15,22 @@
 }
 .modal__window {
   width: 930px;
-  background-color: #fff2fd;
   padding: 30px;
   height: auto;
   border-radius: 300px 0px;
+  animation-name: changeBgColor;
+  animation-duration: 1200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+@keyframes changeBgColor {
+  0% {
+    background-color: rgba(32, 13, 29, 0.6);
+  }
+
+  100% {
+    background-color: #fff2fd;
+  }
 }
 .modal__close-btn-container {
   display: flex;
@@ -29,6 +41,7 @@
   height: 40px;
   margin-right: 20px;
   margin-top: 20px;
+  line-height: 1;
 }
 .modal__close-btn-icon {
   position: relative;
@@ -40,6 +53,7 @@
 .modal__icon {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 .modal__icon img {
   border-radius: 50%;
@@ -52,9 +66,24 @@
   justify-content: start;
   width: 100%;
 }
+
 .modal__main-info img {
   object-fit: cover;
   width: 360px;
+  height: 640px;
+  position: relative;
+  animation-name: animationContentImg;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+@keyframes animationContentImg {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
 }
 .modal__main-info h3 {
   font-style: normal;
@@ -65,6 +94,25 @@
 }
 .main-info-list {
   list-style: none;
+  margin-left: 60px;
+  font-size: 22px;
+  line-height: 1.22;
+  position: relative;
+  animation-name: animationContentText;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+@keyframes animationContentText {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+.main-info-list a {
+  text-decoration: none;
 }
 .buyTicketsBtn {
   width: 145px;
@@ -98,6 +146,7 @@
   font-size: 16px;
   line-height: 20px;
   color: #4c00fe;
+  text-decoration: none;
 }
 .authorInfoBtn:hover {
   color: #4c00fe;
