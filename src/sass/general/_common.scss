@@ -1,0 +1,88 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: $modal-text-color;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
+  line-height: 1.5;
+  color: #2a2a2a;
+}
+
+.gallery {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  /* height: 100vh; */
+}
+
+.item {
+  width: 194px;
+  height: 312px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  // z-index: 0;
+
+  @media screen and (min-width: 320px) {
+    width: 320px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-left: 173px;
+    padding-right: 173px;
+  }
+}

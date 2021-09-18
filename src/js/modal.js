@@ -22,9 +22,7 @@ function onLoadMoreFromAuthor(evt) {
 
 export function onOpenModal(evt) {
   if (evt.target.nodeName !== 'IMG') { return };
-
-  const itemId = evt.target.closest('.item').id;
-  const choosenItem = refs.dataArray.find(item => {
+	@@ -28,15 +9,14 @@ export function onOpenModal(evt) {
     return item.id === itemId;
   });
 
