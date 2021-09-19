@@ -2,25 +2,36 @@
   display: none;
 }
 .modal__back-drop {
-  z-index: 2;
+  z-index: 1000;
   width: 100%;
-  height: 100vh;
+  max-height: 100vh;
   background-color: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(3px);
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 0;
 }
 .modal__window {
-  width: 930px;
-  padding: 30px;
-  height: auto;
-  border-radius: 300px 0px;
+  width: 272px;
+  padding: 17px;
+  height: 98vh;
+  border-radius: 150px 0px;
   animation-name: changeBgColor;
   animation-duration: 1200ms;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+
+  @media screen and (min-width: 768px) {
+    width: 595px;
+    border-radius: 300px 0px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 930px;
+    border-radius: 300px 0px;
+    padding: 30px;
+  }
 }
 @keyframes changeBgColor {
   0% {
@@ -52,13 +63,28 @@
 .modal__icon {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 35px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 40px;
+  }
 }
 .modal__icon img {
   border-radius: 50%;
   object-fit: cover;
   width: 144px;
   height: 144px;
+  @media screen and (min-width: 768px) {
+    width: 82px;
+    height: 82px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 144px;
+    height: 144px;
+  }
 }
 .modal__main-info {
   display: flex;
@@ -67,14 +93,23 @@
 }
 
 .modal__main-info img {
+  display: none;
   object-fit: cover;
-  width: 360px;
-  height: 640px;
   position: relative;
   animation-name: animationContentImg;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    width: 233px;
+    height: 360px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 360px;
+    height: 560px;
+  }
 }
 @keyframes animationContentImg {
   0% {
@@ -87,20 +122,49 @@
 .modal__main-info h3 {
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 20px;
+  line-height: 25px;
   color: #dc56c5;
+
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
+    line-height: 29px;
+  }
 }
 .main-info-list {
   list-style: none;
-  margin-left: 60px;
-  font-size: 22px;
-  line-height: 1.22;
   position: relative;
+  text-align: center;
+  font-size: 16px;
+  line-height: 22px;
   animation-name: animationContentText;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  @media screen and (min-width: 768px) {
+    width: 595px;
+    border-radius: 300px 0px;
+    text-align: left;
+    margin-left: 30px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 930px;
+    border-radius: 300px 0px;
+    margin-left: 60px;
+    font-size: 18px;
+  }
+}
+.main-info-list p {
+  margin-top: 5px;
+  max-height: 88px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 7px;
+  }
 }
 @keyframes animationContentText {
   0% {
