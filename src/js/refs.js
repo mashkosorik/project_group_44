@@ -9,7 +9,7 @@ export const refs = {
   name: '',
   scrollOptions: {
                 root: null,
-                rootMargin: "0px 0px -110px 0px",
+                rootMargin: "0px 0px -180px 0px",
                 threshold: 1,
     }
 };
