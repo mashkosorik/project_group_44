@@ -17,14 +17,33 @@ body {
   line-height: 1.5;
   color: #2a2a2a;
   text-align: center;
+  text-rendering: optimizeSpeed;
+  font: 14px/17px 'Montserrat', sans-serif;
 }
-
+h1{
+  margin: 0px;
+}
 img {
   /* display: block; */
   max-width: 100%;
   height: auto;
 }
-
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background: #5a6f70;
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #dc56c5;
+}
+::-webkit-scrollbar-track {
+	background: #5a6f70;
+	border-radius: 10px;
+	box-shadow: inset 7px 10px 12px #323b3b;
+}
 .gallery {
   list-style: none;
   display: flex;
@@ -52,7 +71,7 @@ img {
 .modal__window {
   width: 930px;
   background-color: #fff2fd;
-  padding: 30px;
+  padding: 0px;
   height: auto;
   border-radius: 300px 0px;
 }
