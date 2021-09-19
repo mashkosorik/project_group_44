@@ -12,8 +12,7 @@ function onLoadMoreFromAuthor(evt) {
       )
    .then((resp) => {
       refs.list.innerHTML = '';
-
-          createMarkup(resp);
+      createMarkup(resp);
       })
         .catch(console.log);
 }
@@ -21,7 +20,7 @@ function onLoadMoreFromAuthor(evt) {
 
 
 export function onOpenModal(evt) {
-  if (evt.target.nodeName !== 'IMG') { return };
+  if (evt.target.nodeName !== 'IMG'&&evt.target.nodeName !== 'P') { return };
 	const itemId = evt.target.closest('.item').id;
   const choosenItem = refs.dataArray.find(item => {
     return item.id === itemId;
