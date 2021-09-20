@@ -1,0 +1,178 @@
+.hero_overlay {
+    background: $headerBg;
+    height: 100%; 
+    margin: 0 auto; 
+  }
+.overlay-between-sections{
+    @media screen and(max-width:767px) {
+      background: $overlayHeroBetweensections;
+      position: relative;
+      width: 100%!important;
+      height: 102px;
+      top: -10px;
+    }
+    @media screen and(min-width:768px )and(max-width:1279px) {
+        background: $overlayHeroBetweensections;
+        position: relative;
+        width: 100%!important;
+        height: 102px;
+        top: -81px;
+    }
+}
+
+.logo {
+	position: absolute;
+	width: 107px;
+	height: 90px; 
+    /* padding: 24px 0 0 24px; */
+	border-bottom-right-radius: 100%;
+	backdrop-filter: blur(30px);
+    background: linear-gradient(136.07deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
+
+
+}
+ .logo__img {
+        width: 60px;
+        height: 30px;
+ }
+
+    @media screen  and (max-width:767px) {
+        .logo{
+        padding-top: 23px;
+        // margin-left: -10px;
+        }
+        .logo_img{
+            width: 60px;
+            height: 30px;
+        }
+    }
+    @media screen  and (min-width: 768px) and (max-width:1279px) {
+         .logo{ 
+        width: 180px;
+        height: 149px;
+        padding-top: 33px;
+        // margin-left: -10px;
+        padding-right: 10px;
+        }
+        .logo_img{
+            width: 100px;
+            height: 50px;
+        }
+    }
+    @media screen  and (min-width: 1280px) {
+        .logo{
+        width: 238.5px;
+        height: 201px;
+        padding-top: 33px;    
+        }
+        .logo_img{
+            width: 163px;
+            height: 84px;
+            margin-left: -10px;
+        }
+    } 
+
+    .logo_link{
+        cursor: pointer;
+        display: inline-block;
+    } 
+
+// .logo__img {
+// 	width: 60px;
+// 	height: 30px;
+    // @media screen   and (max-width:767px){
+    //     width: 60px;
+    //     height: 30px;
+    // }
+    
+    // @media screen  and (min-width: 768px) and (max-width:1279px){
+    //     width: 100px;
+    //     height: 50px;
+    // }
+    // @media screen  and (min-width: 1280px) {
+    //     width: 136px;
+    //     height: 68px;
+    //     margin-left: -10px;
+    // }
+
+
+.hero {
+	
+	background-repeat: no-repeat;
+	background-position: center;
+    @media screen   and (max-width:767px){
+        background-image: url(../images/backMobile@1x.png);
+        width: 100%;
+        height: 364px;
+    }
+    @media screen  and (min-width: 768px) and (max-width:1279px){
+        width: 100%;
+        height: 364px;
+        background-image: url(../images/backTable@1x.png);
+        background-size: 100%;
+    }
+    @media screen  and (min-width: 1280px){
+        width: 100%;
+        height: 446px;
+        background-image: url(../images/backDesk@1x.png);
+        background-size: 100%;
+    }
+}
+
+.hero_title {
+    margin: 0 auto;
+    font-family: $font-family;
+    color: $title-text-color;
+    font-weight: $font-weight-black;
+    
+    text-align: center;
+    @media screen   and (max-width:767px){
+        width: 212px;
+        margin: 0 auto;  
+        padding: 78px 0  25px;
+        text-align: center; 
+        font-size: $font-size-18;
+        line-height: 1.2;
+ 
+        }
+
+    @media screen  and (min-width: 768px) and (max-width:1279px)  {
+        width: 353px;
+        // margin: 0 auto; 
+        padding: 40px 0  27px;
+        // color: #DC56C5;
+        font-size: $font-size-30;
+        // font-weight: $font-weight-black;
+        line-height: 1.23; 
+        text-align: center; 
+    }
+    @media screen  and (min-width: 1280px){
+        display: inline-block;
+        padding-top: 40px;
+        width: 608px; 
+        height: 190px;
+        padding-bottom: 52px;
+        font-family: $font-family;
+        // font-weight: 900;
+        font-size: $font-size-50;
+        line-height: 1.22;
+        text-align: center;
+        // color: #DC56C5;
+    }
+
+}
+
+.container_header {   
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 25px;
+    @media screen  and (min-width: 768px) and (max-width:1279px){
+        padding: 0 87px;
+        width: 768px;
+    }
+    @media screen  and (min-width: 1280px){
+        padding: 0 175px;
+		width: 1280px;
+    }
+}
