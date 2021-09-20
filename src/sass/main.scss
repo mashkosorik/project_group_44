@@ -1,7 +1,7 @@
 @import './utils/variables';
 @import './general/common';
 
-@import './components/_preloader';
+@import './components/first-load';
 @import './components/events';
 @import './components/theme';
 @import './components/header';
@@ -10,4 +10,3 @@
 @import './components/modal';
 @import './components/main';
 @import './components/_footer';
-

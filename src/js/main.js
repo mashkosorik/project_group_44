@@ -1,11 +1,14 @@
 import { refs } from './refs';
+import Notiflix from "notiflix";
+
 
 export function createMarkup(response) {
 
   addDataToArr(response);
-  console.log(response);
+        console.log(response);
+                Notiflix.Loading.arrows();
   const eventList = response.data._embedded.events.reduce((acc, elem) => {
-          acc += `<li class="item" id="${elem.id}">
+          acc += `<li class="item scale-up-center" id="${elem.id}">
                         <div class="card animate__animated animate__backInLeft">
                                 <div class="card-svg">
                                         <img loading="lazy" width="180px" height="227px"class="card-foto" src="${elem.images[6].url}">
@@ -27,6 +30,7 @@ export function createMarkup(response) {
           return acc;
         }, '');
         refs.list.insertAdjacentHTML('beforeend', eventList);
+        Notiflix.Loading.remove(600);
 }
 
   
