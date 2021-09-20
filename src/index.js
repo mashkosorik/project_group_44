@@ -1,5 +1,7 @@
 import './sass/main'
 import "./js/main.js";
+
+
 import  countryList from './js/countryList.json';
 import { addDataToArr, createMarkup } from './js/main.js';
 import { refs } from './js/refs';

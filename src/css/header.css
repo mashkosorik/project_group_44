@@ -1,62 +1,58 @@
-.hero_overlay {
+/* .hero_overlay {
   background: rgba(11,11,11,0.5);
   height: 100%;  
-}
-.overlay-between-sections{
+} */
+/* .overlay-between-sections{
     background: linear-gradient(180deg,rgba(13,13,13,0.19),rgba(14,14,14,0.8));
     position: relative;
     width: 100%!important;
-    height: 1px;
+    height: 102px;
     top: -70px;
-}
-.logo {
+} */
+/* .logo {
 	position: absolute;
 	width: 107px;
 	height: 90px; 
-    /* padding: 24px 0 0 24px; */
+   
 	border-bottom-right-radius: 100%;
 	backdrop-filter: blur(30px);
-   } 
+   }  */
 
-.logo__img {
+/* .logo__img {
 	width: 60px;
 	height: 30px;
-}
-.logo_link{
+} */
+/* .logo_link{
     cursor: pointer;
     display: inline-block;
-} 
+}  */
 
-.hero {
+/* .hero {
 	
 	background-repeat: no-repeat;
 	background-position: center;
     background-image: url(../images/backMobile@1x.png);
-    /* background-size: 100%; */
-    }
+   
+    } */
 
     
- .hero_title {
+ /* .hero_title {
 	
         margin: 0 auto;
-        padding: 8px 0 25px;
-        /* color: #DC56C5;
-        font-size: 18px;
-        font-weight: 900;
-        line-height: 22px; */
+        padding: 78px 0 25px;
         text-align: center;
         
-    }
+    } */
    
-    .container_header {
+/* .container_header {
         
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
-            padding: 0 25px;
+     width: 100%;
+     height: auto;
+     margin: 0 auto;
+     padding: 0 25px;
         
-    }
-    @media screen   and (max-width:767px) {
+    } */
+    /* @media screen   and (max-width:767px) {
         .logo{
             
             padding-top: 20px;
@@ -68,8 +64,8 @@
                 width: 60px;
                 height: 30px;
             
-        }
-        .hero { 
+        } */
+        /* .hero { 
             width: 100%;
             height: 300px;
             background-image: url(../images/backMobile@1x.png);
@@ -80,7 +76,7 @@
             width: 212px;
             margin: 0 auto;  
             padding: 78px 0  25px;
-            
+            font-family: inherit;
             font-weight: 900;
             line-height: 40px; 
             text-align: center; 
@@ -88,6 +84,7 @@
             color: #DC56C5;
             font-size: 18px;
             font-weight: 900;
+        
             line-height: 22px;
             
             }
@@ -108,8 +105,8 @@
                  width: 320px; 
                 margin-top: 262px; 
             }                  
-    }
-	@media screen  and (min-width: 768px) and (max-width:1279px) {
+    } */
+	/* @media screen  and (min-width: 768px) and (max-width:1279px) {
         .logo{
             width: 180px;
             height: 149px;
@@ -133,6 +130,7 @@
                 width: 353px;
                 margin: 0 auto; 
                 padding: 40px 0   27px;
+                
                 color: #DC56C5;
                 font-size: 30px;
                 font-weight: 900;
@@ -157,8 +155,8 @@
             width: 136px;
             height: 68px;
             margin-left: -10px;
-        }
-        .hero {
+        } */
+        /* .hero {
             height: 446px;
             background-image: url(../images/backDesk@1x.png);
             background-size: 100%;
@@ -171,6 +169,7 @@
         width: 608px; 
         height: 190px;
         padding-bottom: 52px;
+        font-family: inherit;
         font-weight: 900;
         font-size: 50px;
         line-height: 61px;
@@ -178,6 +177,49 @@
         color: #DC56C5;
         
     }
-   }
+   } */
+/* форма  */
 
-    
+/* .container_header {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	padding: 0 25px;
+}
+	@media screen and(min-width: 768px) and (max-width:1279px) {
+  .container_header{
+		padding: 0 87px;
+		width: getRange(768px);
+	}
+}
+@media screen  and (min-width: 1280px) {
+  .container_header{
+		padding: 0 175px;
+		width: getRange(1280px);
+	}
+} */
+
+	/* &.nopad {
+		padding: 0;
+	}
+} */
+
+
+  /* 
+
+
+
+
+/* .searchInput{
+  border: solid 1px #DC56C5;
+  padding: 10px;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  background-color: tomato;
+  /* background-image: url(../images/search.svg) */
+
+
+
+/* .span{
+  display: block;
+} */
