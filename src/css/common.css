@@ -1,3 +1,5 @@
+@import url(./header.css);
+
 *,
 *::before,
 *::after {
@@ -10,36 +12,54 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   color: #2a2a2a;
+  text-align: center;
+  text-rendering: optimizeSpeed;
+  font: 14px/17px 'Montserrat', sans-serif;
 }
-
+h1 {
+  margin: 0px;
+}
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #5a6f70;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc56c5;
+}
+::-webkit-scrollbar-track {
+  background: #5a6f70;
+  border-radius: 10px;
+  box-shadow: inset 7px 10px 12px #323b3b;
+}
 .gallery {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  /* height: 100vh; */
 }
 .item {
   width: 194px;
   height: 312px;
 }
 
-.modal__back-drop.hidden {
+/* .modal__back-drop.hidden {
   display: none;
 }
 .modal__back-drop {
   width: 100%;
   height: 100vh;
-  /* top: -5vh; */
+
   background-color: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(3px);
   position: fixed;
@@ -50,7 +70,7 @@ img {
 .modal__window {
   width: 930px;
   background-color: #fff2fd;
-  padding: 30px;
+  padding: 0px;
   height: auto;
   border-radius: 300px 0px;
 }
@@ -136,4 +156,5 @@ img {
 .authorInfoBtn:hover {
   color: #4c00fe;
   text-decoration: none;
-}
+} 
+

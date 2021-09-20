@@ -1,5 +1,7 @@
 import './sass/main'
 import "./js/main.js";
+
+
 import  countryList from './js/countryList.json';
 import { addDataToArr, createMarkup } from './js/main.js';
 import { refs } from './js/refs';
@@ -54,12 +56,10 @@ const onSearch = _.debounce((e) => {
 
             const lastItem = document.querySelectorAll('.item')[document.querySelectorAll('.item').length - 1];
             observer.observe(lastItem);
-        
       })
       .catch(console.log);
   }
 }, 600);
-
 
 
 refs.searchInput.addEventListener('input', onSearch);

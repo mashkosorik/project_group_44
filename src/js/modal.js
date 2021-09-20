@@ -12,8 +12,7 @@ function onLoadMoreFromAuthor(evt) {
       )
    .then((resp) => {
       refs.list.innerHTML = '';
-
-          createMarkup(resp);
+      createMarkup(resp);
       })
         .catch(console.log);
 }
@@ -21,13 +20,14 @@ function onLoadMoreFromAuthor(evt) {
 
 
 export function onOpenModal(evt) {
-  if (evt.target.nodeName !== 'IMG') { return };
-	@@ -28,15 +9,14 @@ export function onOpenModal(evt) {
+  if (evt.target.nodeName !== 'IMG'&&evt.target.nodeName !== 'P') { return };
+	const itemId = evt.target.closest('.item').id;
+  const choosenItem = refs.dataArray.find(item => {
     return item.id === itemId;
   });
 
-  const { dates: { start, timezone }, name, info, images, url, priceRanges } = choosenItem;
-  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info,images,url, priceRanges });
+  const { dates: { start, timezone }, name, info, images, url, priceRanges, products } = choosenItem;
+  refs.modal.innerHTML = modalTemplate({ dates:{start, timezone},name,info,images,url, priceRanges, products });
   refs.modal.classList.remove('hidden');
 
   document.querySelector('.authorInfoBtn').addEventListener('click', onLoadMoreFromAuthor);
